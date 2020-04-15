@@ -1,10 +1,10 @@
 import React from "react";
 
 const initialState = {
-  name: "",
-  password: "",
-  nameError: "",
-  passwordError: "",
+  Name: "",
+  Password: "",
+  NameError: "",
+  PasswordError: "",
 };
 
 export default class Navbar extends React.Component {
@@ -21,18 +21,18 @@ export default class Navbar extends React.Component {
     });
   };
 
-  validate = () => {
-    let nameError = " ";
-    let passwordError = " ";
+  valid = () => {
+    let NameError = "";
+    let PasswordError = "";
 
-    if (!this.state.name) {
-      nameError = "Invalid Entery!";
+    if (!this.state.Name) {
+      NameError = "UseName error";
     }
-    if (!this.state.password) {
-      passwordError = "Invalid Entery!";
+    if (!this.state.Password) {
+      PasswordError = "Password error";
     }
-    if (nameError || passwordError) {
-      this.setState({ nameError, passwordError });
+    if (NameError || PasswordError) {
+      this.setState({ NameError, PasswordError });
       return false;
     }
     return true;
@@ -40,10 +40,10 @@ export default class Navbar extends React.Component {
 
   handleSubmit = (event: { preventDefault: () => void }) => {
     event.preventDefault();
-    const isValid = this.validate();
+    const isValid = this.valid();
     if (isValid) {
       console.log(this.state);
-      // clear form
+
       this.setState(initialState);
     }
   };
@@ -53,22 +53,22 @@ export default class Navbar extends React.Component {
       <form onSubmit={this.handleSubmit}>
         <div>
           <input
-            name="name"
+            name="Name"
             placeholder="Name"
-            value={this.state.name}
+            value={this.state.Name}
             onChange={this.handleChange}
           />
-          <div>{this.state.nameError}</div>
+          <div>{this.state.NameError}</div>
         </div>
         <div>
           <input
-            type="password"
-            name="password"
+            type="Password"
+            name="Password"
             placeholder="Password"
-            value={this.state.password}
+            value={this.state.Password}
             onChange={this.handleChange}
           />
-          <div>{this.state.passwordError}</div>
+          <div>{this.state.PasswordError}</div>
         </div>
         <button type="submit">LOGIN</button>
       </form>

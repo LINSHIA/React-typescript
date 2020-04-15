@@ -9,7 +9,7 @@ export interface IAppProps {}
 
 interface IState {
   isButtonPressed: boolean;
-  userName: string;
+  UserName: string;
 }
 
 export default class App extends React.Component<IAppProps, IState> {
@@ -18,7 +18,7 @@ export default class App extends React.Component<IAppProps, IState> {
 
     this.state = {
       isButtonPressed: false,
-      userName: "default",
+      UserName: "default",
     };
   }
 
@@ -32,11 +32,11 @@ export default class App extends React.Component<IAppProps, IState> {
 
   public onClickUserNameSetButton = (newUserName: string) => {
     console.log(this.state);
-    this.setState({ userName: newUserName });
+    this.setState({ UserName: newUserName });
   };
 
   public render() {
-    let { isButtonPressed, userName } = this.state;
+    let { isButtonPressed, UserName } = this.state;
     return (
       <Fragment>
         <div className="App">
@@ -44,15 +44,13 @@ export default class App extends React.Component<IAppProps, IState> {
             isButtonPressed={isButtonPressed}
             callbackMethod={this.onClickButton}
             callbackMethodToGoBack={this.onClickButtonToGoBack}
-            userName={userName}
+            UserName={UserName}
             onClickUserNameSetButton={this.onClickUserNameSetButton}
           />
           <Navbar />
           <div>
-            {isButtonPressed ? (
-              <SectionWithLoopRendering />
-            ) : (
-              <h4>Not Logged In</h4>
+            {isButtonPressed}
+            <SectionWithLoopRendering />) : (<h4>Not Logged In</h4>
             )}
           </div>
         </div>

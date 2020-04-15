@@ -4,21 +4,21 @@ import ProfileCard from "./ProfileCard";
 import SpecialButton from "./SpecialButton";
 import SpecialInputSection from "./SpecialInputSection";
 
-export interface IMainSectionProps {
+export interface IMainProps {
   isButtonPressed: boolean;
   callbackMethod: () => void;
   callbackMethodToGoBack: () => void;
-  userName: string;
-  onClickUserNameSetButton: (username: string) => void;
+  UserName: string;
+  onClickUserNameSetButton: (Username: string) => void;
 }
 
-export default class MainSection extends React.Component<IMainSectionProps> {
+export default class Main extends React.Component<IMainProps> {
   public render() {
     const {
       isButtonPressed,
       callbackMethod,
       callbackMethodToGoBack,
-      userName,
+      UserName,
       onClickUserNameSetButton,
     } = this.props;
 
@@ -35,7 +35,7 @@ export default class MainSection extends React.Component<IMainSectionProps> {
         <Grid.Row centered>{buttonPressHeader}</Grid.Row>
         <Grid.Row centered>
           {isButtonPressed ? (
-            <ProfileCard userName={userName} />
+            <ProfileCard userName={UserName} />
           ) : (
             <h1>Please Login</h1>
           )}

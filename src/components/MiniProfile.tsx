@@ -8,15 +8,15 @@ export interface IMiniProfileProps {
 
 export default class MiniProfile extends React.Component<IMiniProfileProps> {
   public render() {
-    const { id, name, favoritePizza, birthday } = this.props.user;
+    const { name, favoritePizza, birthday, id } = this.props.user;
 
     return (
       <Grid>
         <Grid.Row>
-          <h1>{id}</h1>
+          <h1>{name}</h1>
         </Grid.Row>
         <Grid.Row>
-          <h1>{name}</h1>
+          <h1>{id}</h1>
         </Grid.Row>
         <Grid.Row>
           <h1>{favoritePizza}</h1>
