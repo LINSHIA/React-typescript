@@ -49,8 +49,10 @@ export default class App extends React.Component<IAppProps, IState> {
           />
           <Navbar />
           <div>
-            {isButtonPressed}
-            <SectionWithLoopRendering />) : (<h4>Not Logged In</h4>
+            {isButtonPressed ? (
+              <SectionWithLoopRendering />
+            ) : (
+              <h4>Not Logged In</h4>
             )}
           </div>
         </div>
